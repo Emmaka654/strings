@@ -1,2 +1,27 @@
-package com.belhard.strings;public class Task4 {
+package com.belhard.strings;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import static com.belhard.strings.Task1.getString;
+
+public class Task4 {
+    public static void main(String[] args) {
+        System.out.print("Enter string which contains numbers: ");
+        String str = getString("1 kilogram contains 1000 grams");
+
+        int result = findAmountOfNumbers(str);
+
+        System.out.println("The number of digits: " + result);
+    }
+
+    public static int findAmountOfNumbers(String str) {
+        int count = 0;
+        for (int i = 0; i < str.length(); i++) {
+            if (Character.isDigit(str.charAt(i)) && (!Character.isDigit(str.charAt(i + 1)))) {
+                count++;
+            }
+        }
+        return count;
+    }
 }
